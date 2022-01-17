@@ -22,9 +22,9 @@ class Activity2 : AppCompatActivity() {
     fun init(){
         val person: Person? = intent.extras?.getParcelable<Person>("person")
 
-        binding.textName.text="${person?.name} ${person?.surname}"
-        binding.textAge.text=" ${person?.age} years old"
-        binding.textJob.text=person?.job
+        binding.textName.text="${intent.getStringExtra("name")} ${intent.getStringExtra("surname")}"
+        binding.textAge.text=" ${intent.getStringExtra("age")} years old"
+        binding.textJob.text=intent.getStringExtra("job")
     }
 
 

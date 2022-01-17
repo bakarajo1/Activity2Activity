@@ -25,10 +25,13 @@ class MainActivity : AppCompatActivity() {
     fun listeners(){
 
         binding.button.setOnClickListener {
-            val person=Person( binding.editTextTextPersonName.text.toString(), binding.editTextTextPersonSurname.text.toString(),binding.editTextTextPersonAge.text.toString().toInt(),binding.editTextTextPersonJob.text.toString())
             val intent =  Intent(this,Activity2::class.java)
 
-            intent.putExtra("person", person)
+            intent.putExtra("name", binding.editTextTextPersonName.text.toString())
+            intent.putExtra("surname", binding.editTextTextPersonSurname.text.toString())
+            intent.putExtra("age", binding.editTextTextPersonAge.text.toString())
+            intent.putExtra("job", binding.editTextTextPersonJob.text.toString())
+
             startActivity(intent)
 
         }
