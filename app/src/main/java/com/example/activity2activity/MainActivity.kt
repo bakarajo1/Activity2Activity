@@ -6,7 +6,6 @@ import android.os.Bundle
 import com.example.activity2activity.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,16 +25,11 @@ class MainActivity : AppCompatActivity() {
     fun listeners(){
 
         binding.button.setOnClickListener {
-
+            val person=Person( binding.editTextTextPersonName.text.toString(), binding.editTextTextPersonSurname.text.toString(),binding.editTextTextPersonAge.text.toString().toInt(),binding.editTextTextPersonJob.text.toString())
             val intent =  Intent(this,Activity2::class.java)
 
-            intent.putExtra("name", binding.editTextTextPersonName.text.toString())
-            intent.putExtra("surname", binding.editTextTextPersonName2.text.toString())
-            intent.putExtra("age", binding.editTextTextPersonName3.text.toString())
-            intent.putExtra("job", binding.editTextTextPersonName4.text.toString())
-
+            intent.putExtra("person", person)
             startActivity(intent)
-
 
         }
 

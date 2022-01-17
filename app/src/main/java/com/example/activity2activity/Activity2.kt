@@ -10,8 +10,6 @@ class Activity2 : AppCompatActivity() {
     private lateinit var binding: Activity2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_2)
         binding = Activity2Binding.inflate(layoutInflater)
@@ -20,15 +18,13 @@ class Activity2 : AppCompatActivity() {
         init()
     }
 
-
     @SuppressLint("SetTextI18n")
     fun init(){
+        val person: Person? = intent.extras?.getParcelable<Person>("person")
 
-        binding.textName.text="${intent.getStringExtra("name")} ${intent.getStringExtra("surname")}"
-        binding.textAge.text=" ${intent.getStringExtra("age")} years old"
-        binding.textJob.text=intent.getStringExtra("job")
-
-
+        binding.textName.text="${person?.name} ${person?.surname}"
+        binding.textAge.text=" ${person?.age} years old"
+        binding.textJob.text=person?.job
     }
 
 
